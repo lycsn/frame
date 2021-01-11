@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no,minimal-ui, viewport-fit=cover">
+    <title>无编码地址</title>
+    <script src="../../js/rem.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="./ydui.css"/>
+</head>
+<body>
+    <!-- 头部 -->
+    <div class="header">
+        <div class="headerBox">
+            <a href="javascript:history.go(-1)" class="lt"><img src="../../image/lt.png" ></a>
+            <h1><span>无编码地址</span></h1>
+        </div>
+    </div>s
+    <!-- 头部占位 -->
+    <div class="tbzw"></div>
+
+    <input value="" id="J_Address" readonly class="addressInput" placeholder="省市区县、乡镇街道等" type="text">
+    <!-- 提示 -->
+    <div class="tsbox">
+        <div class="tisi"></div>
+    </div>
+</body>
+</html>
+
+<script src="../../js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/base.js"></script>
+<script type="text/javascript" src="./ydui.citys.js"></script>
+<script type="text/javascript" src="./ydui.js"></script>
+<script>
+!function () {
+        var $target = $('#J_Address');
+        $target.citySelect();
+        $target.on('click', function (event) {
+            event.stopPropagation();
+            $target.citySelect('open');
+        });
+
+        $target.on('done.ydui.cityselect', function (ret) {
+            $(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
+        });
+    }();
+
+</script>
